@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'GabiaSaiche';
+  src: url('/fonts/GabiaSai.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #02030a;
+  color: #fff;
+  font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+#root { min-height: 100vh; }
+
+/* 별 애니메이션 */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+@keyframes twinkle2 {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.1; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+}
+@keyframes planetRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.star { position: absolute; border-radius: 50%; background: #fff; animation: twinkle var(--dur, 3s) var(--delay, 0s) infinite ease-in-out; }
+.star.silver { background: #c8d6e5; }
+.planet-float { animation: float 6s ease-in-out infinite; }
+.fade-up { animation: fadeUp 0.8s ease both; }
